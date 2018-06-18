@@ -1,12 +1,16 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IDatetimePopupButtonOptions } from '../../interfaces/button-options';
 
 @Component({
   selector: 'datetime-popup',
-  templateUrl: './datetime-popup.component.html'
+  templateUrl: './datetime-popup.component.html',
+  providers: [{
+        provide: NG_VALUE_ACCESSOR
+  }]
 })
 
-export class DatetimePopupComponent implements OnChanges {
+export class DatetimePopupComponent implements OnChanges, ControlValueAccessor {
 
   @Input()
   public value: Date;
