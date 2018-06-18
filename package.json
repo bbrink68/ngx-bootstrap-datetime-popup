@@ -52,6 +52,7 @@
     "postversion": "git push && git push --tags",
     "prebuild": "rimraf dist tmp",
     "prebuild:watch": "rimraf dist tmp",
+    "preinstall": "npm run build:esm && npm run build:umd",
     "prepublishOnly": "npm run ci",
     "preversion": "npm run ci",
     "tslint": "tslint"
